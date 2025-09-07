@@ -1,14 +1,24 @@
--- Criação da tabela Clientes no Azure SQL
-CREATE TABLE Clientes (
-    Id_Cliente INT PRIMARY KEY IDENTITY(1,1),
-    Nome NVARCHAR(100) NOT NULL,
-    Endereco NVARCHAR(150),
-    Cidade NVARCHAR(100),
-    Telefone NVARCHAR(20)
-);
+-- Cria o banco de dados em UTF8MB4
+CREATE DATABASE IF NOT EXISTS clientes
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_general_ci;
+
+USE clientes;
+
+-- Cria a tabela clientes em UTF8MB4
+CREATE TABLE IF NOT EXISTS clientes (
+    Id_Cliente INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Endereco VARCHAR(200),
+    Cidade VARCHAR(100),
+    Telefone VARCHAR(20)
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_general_ci;
+
 
 -- Inserção de 30 registros fictícios
-INSERT INTO Clientes (Nome, Endereco, Cidade, Telefone) VALUES
+INSERT INTO clientes (Nome, Endereco, Cidade, Telefone) VALUES
 ('João Silva', 'Rua das Flores, 123', 'São Paulo', '(11) 98888-1111'),
 ('Maria Oliveira', 'Av. Brasil, 456', 'Rio de Janeiro', '(21) 97777-2222'),
 ('Carlos Santos', 'Rua A, 55', 'Belo Horizonte', '(31) 96666-3333'),
