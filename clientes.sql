@@ -1,9 +1,16 @@
+SET NAMES 'utf8mb4';
+
 -- Cria o banco de dados em UTF8MB4
 CREATE DATABASE IF NOT EXISTS clientes
   DEFAULT CHARACTER SET utf8mb4
   DEFAULT COLLATE utf8mb4_general_ci;
 
 USE clientes;
+
+-- Cria o usuário para a aplicação Docker (se não existir)
+CREATE USER IF NOT EXISTS 'user_docker'@'%' IDENTIFIED BY 'suasenha_user';
+GRANT ALL PRIVILEGES ON clientes.* TO 'user_docker'@'%';
+FLUSH PRIVILEGES;
 
 -- Cria a tabela clientes em UTF8MB4
 CREATE TABLE IF NOT EXISTS clientes (
@@ -15,7 +22,6 @@ CREATE TABLE IF NOT EXISTS clientes (
 ) ENGINE=InnoDB
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_general_ci;
-
 
 -- Inserção de 30 registros fictícios
 INSERT INTO clientes (Nome, Endereco, Cidade, Telefone) VALUES
