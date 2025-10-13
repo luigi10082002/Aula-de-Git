@@ -11,11 +11,11 @@ RUN apt-get update && \
     docker-php-ext-install pdo_mysql zip opcache
 
 # Define o diretório de trabalho padrão para o Apache.
-WORKDIR /var/www/html
+WORKDIR /var/www/html/Aula09
 
 # Copia os arquivos da aplicação do diretório 'src' local para o diretório de trabalho no contêiner.
 # Este passo garante que a imagem contenha o código e possa ser executada de forma independente.
-COPY ./src /var/www/html/
+COPY ./src /var/www/html/Aula09
 
 # A imagem base 'php:8.2-apache' já define o CMD ["apache2-foreground"],
 # então não precisamos declará-lo novamente. O Apache iniciará automaticamente.

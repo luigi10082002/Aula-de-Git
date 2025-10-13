@@ -45,7 +45,7 @@ services:
     # Mapeia o script SQL inicial para o diretório de inicialização do MySQL.
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./Aula09/init.sql:/docker-entrypoint-initdb.d/init.sql
     # Define a rede que este serviço usará.
     networks:
       - app-network
